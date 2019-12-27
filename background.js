@@ -1,5 +1,5 @@
 chrome.browserAction.onClicked.addListener(() => {
-  let scripts = ['movement.js', 'content.js'];
+  let scripts = ['common.js', 'interpreter.js', 'movement.js', 'content.js'];
   multipleInjection(scripts);
 });
 
