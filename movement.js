@@ -46,22 +46,24 @@ function coordEaseInOut(t, startX, startY, endX, endY) {
     return [x, y];
 }
 
-function animateMove(startX, startY, endX, endY, duration) {
-    let start = Date.now();
+async function animateMove(startX, startY, endX, endY, duration) {
+    return new Promise(resolve => {
+        let start = Date.now();
+        board.dispatchEvent(downEvent(startX, startY));
+        let id = setInterval(frame, 5);
 
-    board.dispatchEvent(downEvent(startX, startY));
-    let id = setInterval(frame, 5);
+        function frame() {
+            let now = Date.now();
+            let t = (now - start) / duration;
+            if (t > 1) {
+                clearInterval(id);
+                document.dispatchEvent(upEvent(endX, endY));
+                resolve('resolved');
+                return;
+            }
 
-    function frame() {
-        let now = Date.now();
-        let t = (now - start) / duration;
-        if (t > 1) {
-            clearInterval(id);
-            document.dispatchEvent(upEvent(endX, endY));
-            return;
+            let res = coordEaseInOut(t, startX, startY, endX, endY);
+            document.dispatchEvent(moveEvent(res[0], res[1]));
         }
-
-        let res = coordEaseInOut(t, startX, startY, endX, endY);
-        document.dispatchEvent(moveEvent(res[0], res[1]));
-    }
+    });
 }
