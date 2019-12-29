@@ -5,12 +5,13 @@ async function main() {
     let state_board = new Board();
     state_board.initialize(board);
 
-    let move = 'Bxb7';
+    let move = 'e4';
     let [start, end] = state_board.getMoveCoordinates(move);
     console.log(start, end);
     start = chessToEuclidSpace(start.x, start.y);
     end = chessToEuclidSpace(end.x, end.y);
-    await animateMove(start.x, start.y, end.x, end.y, 900);
+    // await animateMove(start.x, start.y, end.x, end.y, 900);
+    await simpleMove(start, end);
 }
 
 function action() {

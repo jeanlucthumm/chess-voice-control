@@ -67,3 +67,22 @@ async function animateMove(startX, startY, endX, endY, duration) {
         }
     });
 }
+
+async function simpleMove(start, end) {
+    board.dispatchEvent(downEvent(start.x, start.y));
+    await timeout(10);
+    document.dispatchEvent(upEvent(start.x, start.y));
+    await timeout(10);
+
+    board.dispatchEvent(downEvent(end.x, end.y));
+    await timeout(10);
+    document.dispatchEvent(upEvent(end.x, end.y));
+}
+
+async function timeout(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve('resolved');
+        }, milliseconds);
+    });
+}
