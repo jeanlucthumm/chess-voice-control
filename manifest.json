@@ -8,8 +8,17 @@
     "tabs"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": false
   },
-  "browser_action": {}
+  "browser_action": {},
+  "web_accessible_resources": [
+    "indicator.html",
+    "indicator.css",
+    "images/blue-circle.svg",
+    "images/green-circle.svg",
+    "images/red-circle.svg"
+  ]
 }
