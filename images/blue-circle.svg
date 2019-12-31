@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 344.62 351.32" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <defs>
+  <filter id="filter3798" color-interpolation-filters="sRGB">
+   <feGaussianBlur result="result91" stdDeviation="5"/>
+   <feComposite in="SourceGraphic" in2="result91"/>
+  </filter>
+  <linearGradient id="linearGradient4065" x1="235.18" x2="261.18" y1="553.73" y2="438.68" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-193.75 -344.54)">
+  <g transform="matrix(1.8664 0 0 1.8954 -80.915 -234.74)">
+   <g fill-rule="evenodd">
+    <path transform="translate(-9.0914 -62.629)" d="m314.29 460.93c0 36.293-29.421 65.714-65.714 65.714s-65.714-29.421-65.714-65.714 29.421-65.714 65.714-65.714 65.714 29.421 65.714 65.714z" fill="#08a" filter="url(#filter3798)" stroke="#000" stroke-width="3"/>
+    <path transform="matrix(-.67993 .59409 -.59409 -.67993 682.65 563.93)" d="m314.29 460.93c0 36.293-29.421 65.714-65.714 65.714s-65.714-29.421-65.714-65.714c0-11.729 3.1394-23.245 9.0923-33.351" fill="url(#linearGradient4065)" filter="url(#filter3798)"/>
+   </g>
+  </g>
+ </g>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+    <dc:publisher>
+     <cc:Agent rdf:about="http://openclipart.org/">
+      <dc:title>Openclipart</dc:title>
+     </cc:Agent>
+    </dc:publisher>
+    <dc:title/>
+    <dc:date>2011-08-26T04:21:37</dc:date>
+    <dc:description>A red circle</dc:description>
+    <dc:source>https://openclipart.org/detail/158167/red-circle-by-gurzaf</dc:source>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>gurzaf</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <dc:subject>
+     <rdf:Bag>
+      <rdf:li>Circle</rdf:li>
+      <rdf:li>Red</rdf:li>
+     </rdf:Bag>
+    </dc:subject>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+</svg>
