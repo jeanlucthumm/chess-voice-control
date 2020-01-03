@@ -49,10 +49,11 @@ class Board {
             console.error("Found more than 32 pieces on the board");
             return;
         }
+        console.log(html_pieces); // DEBUG
         this.pieces = [];
         for (let html_piece of html_pieces) {
             let rect = html_piece.getBoundingClientRect();
-            let pos = euclidToChessSpace(rect.x, rect.y);
+            let pos = euclidToChessSpace(rect.x, rect.y, board);
             let class_string = html_piece.classList.value;
             if (!piece_regex.test(class_string)) {
                 console.error("Cannot interpret piece class list: " + class_string);
@@ -82,6 +83,10 @@ class Board {
     }
 
     getMoveCoordinates(move) {
+        if (!move_regex.test(move)) {
+            console.error('Regex did not match move: ', move);
+            return null;
+        }
         let regGroups = move.match(move_regex);
         let type = (regGroups[1] !== "") ? typeCodeToType(regGroups[1]) : 'pawn';
         let col = (regGroups[2] !== "") ? columnToNumber(regGroups[2]) : null;
@@ -96,6 +101,7 @@ class Board {
                 }
             }
         }
+        console.log('candidates', candidates); // DEBUG
 
         // filter by possible moves
         let movable = [];
@@ -104,6 +110,7 @@ class Board {
                 movable.push(candidate);
             }
         }
+        console.log('movable', movable); // DEBUG
         if (movable.length === 1) {
             let piece = movable[0];
             return [

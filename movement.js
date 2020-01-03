@@ -68,7 +68,7 @@ async function animateMove(startX, startY, endX, endY, duration) {
     });
 }
 
-async function simpleMove(start, end) {
+async function simpleMove(start, end, board) {
     board.dispatchEvent(downEvent(start.x, start.y));
     await timeout(10);
     document.dispatchEvent(upEvent(start.x, start.y));

@@ -1,6 +1,8 @@
 console.log('loaded');
 main();
 
+let state_board = new Board();
+
 async function main() {
     // let state_board = new Board();
     // state_board.initialize(board);
@@ -32,16 +34,44 @@ function injectModal() {
 
     let request = new XMLHttpRequest();
     request.open('GET', chrome.extension.getURL('indicator.html'));
-    request.send();
     request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
             div.innerHTML = request.responseText;
         }
-        let indicator = document.getElementById('chess-voice-control-indicator');
-        if (indicator == null) console.error("Could not find injected modal");
-        indicator.src = chrome.extension.getURL('images/green-circle.svg');
+        setupModal();
+        setupState();
     };
     request.send();
+}
+
+function setupModal() {
+    let indicator = document.getElementById('chess-voice-control-indicator');
+    if (indicator == null) console.error("Could not find injected modal");
+    indicator.src = chrome.extension.getURL('images/green-circle.svg');
+
+    let input = document.getElementById('chess-voice-control-text-input');
+    input.addEventListener('keydown', ev => {
+        if (ev.key === 'Enter') {
+            let move = input.value;
+            input.value = '';
+            makeMove(move);
+        }
+    });
+}
+
+function setupState() {
+    let board = document.getElementsByTagName('cg-board')[0];
+    state_board.initialize(board);
+}
+
+async function makeMove(move) {
+    let board = document.getElementsByTagName('cg-board')[0];
+    state_board.update(board);
+    state_board.debugDump();
+    let [start, end] = state_board.getMoveCoordinates(move);
+    start = chessToEuclidSpace(start.x, start.y, board);
+    end = chessToEuclidSpace(end.x, end.y, board);
+    await simpleMove(start, end, board);
 }
 
 function action() {

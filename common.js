@@ -1,5 +1,3 @@
-const board = document.getElementsByTagName('cg-board')[0];
-
 class Point {
     constructor(x, y) {
         this.x = x;
@@ -8,7 +6,7 @@ class Point {
 }
 
 // coord from bottom left
-function chessToEuclidSpace(x, y) {
+function chessToEuclidSpace(x, y, board) {
     let rect = board.getBoundingClientRect();
     let xStep = rect.width / 8;
     let yStep = rect.height / 8;
@@ -19,7 +17,7 @@ function chessToEuclidSpace(x, y) {
     );
 }
 
-function euclidToChessSpace(x, y) {
+function euclidToChessSpace(x, y, board) {
     let rect = board.getBoundingClientRect();
     let xStep = rect.width / 8;
     let yStep = rect.height / 8;
